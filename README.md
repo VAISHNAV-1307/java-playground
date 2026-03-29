@@ -1,15 +1,5 @@
 # Java Playground
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
-body {
-  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
-}
-* {
-  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
-}
-</style>
-
 A comprehensive Java coding practice project featuring various programming concepts, algorithms, and data structure implementations.
 
 ## Overview
