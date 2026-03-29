@@ -89,3 +89,4 @@ Feel free to add new modules, examples, or improvements:
 ## Dependencies
 
 - Java 8+ (no external dependencies required)
+
