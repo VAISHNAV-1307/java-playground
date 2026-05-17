@@ -72,5 +72,72 @@ public class StreamsPractice {
         return collect1.equals(collect2);
     }
 
+    /*
+    7. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+    Input: nums = [2,7,11,15], target = 9
+    Output: [0,1]
+     */
+
+    public int[] twoSum(int[] numbers, int target) {
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                int sum = numbers[i] + numbers[j];
+                if (sum == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[]{};
+    }
+
+    /*
+    8. Longest Substring Without Repeating Characters
+    Input: "abcabcbb"
+    Output: 3
+    Explanation:
+    Longest substring = "abc"
+     */
+
+    public String getLongestSubString(String str) {
+        String longest = "";
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i; j < str.length(); j++) {
+                String substring = str.substring(i, j + 1);
+                if (hasAllUnique(substring) && substring.length() > longest.length()) {
+                    longest = substring;
+                }
+            }
+        }
+        return longest;
+    }
+
+    private boolean hasAllUnique(String s) {
+        Set<Character> seen = new HashSet<>();
+        for (char c : s.toCharArray()) {
+            if (!seen.add(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * First Non-Repeating Character
+     * Input: "aabbccddef"
+     * Output: 'e'
+     */
+
+    public Character getFirstNonRepeatingChar(String str) {
+        return str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == 1)
+                .findFirst()
+                .map(Map.Entry::getKey)
+                .orElse(null);
+    }
+
 
 }
